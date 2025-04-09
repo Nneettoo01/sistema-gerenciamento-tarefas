@@ -1,0 +1,24 @@
+{
+  "name": "sistema-gerenciamento-tarefas",
+  "version": "1.0.0",
+  "description": "Sistema de Gerenciamento de Tarefas: Trabalho 01 de JavaScript (AmontadaValley)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nneettoo01/sistema-gerenciamento-tarefas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nneettoo01/sistema-gerenciamento-tarefas/issues"
+  },
+  "homepage": "https://github.com/Nneettoo01/sistema-gerenciamento-tarefas#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
