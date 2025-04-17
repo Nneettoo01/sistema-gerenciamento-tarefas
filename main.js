@@ -24,38 +24,7 @@ async function escreverTarefas(listaTarefas) {
   }
 }
 
-function menu() {
-  console.log(`
-      === MENU ===
-      1. Criar uma nova tarefa.
-      2. Vizualizar todas as tarefas.
-      3. Vizualizar apenas tarefas concluídas.
-      4. Vizaulizar apenas tarefas não concluídas.
-      5. Concluir uma tarefa
-      6. Sair      
-      `);
-}
-menu();
-
-const opções = +prompt("Digite a opção: ");
-switch (opções) {
-  case 1:
-    await criarTarefas();
-    break;
-  case 2:
-    await mostrarTodasTarefas();
-    break;
-  case 3:
-    await mostrarTarefasConcluidas();
-    break;
-  case 4:
-    await mostrarTarefasNaoConluidas();
-    break;
-  case 5:
-    await concluirTarefa();
-    break;
-}
-
+// ====== FUNÇÕES AUXILIARES ======
 async function criarTarefas() {
   const titulo = prompt("Digite o título: ");
   const descricao = prompt("Digite a descrição: ");
@@ -84,7 +53,7 @@ async function mostrarTarefasConcluidas() {
   console.log(concluidas);
 }
 
-async function mostrarTarefasNaoConluidas() {
+async function mostrarTarefasNaoConcluidas() {
   const tarefasNaoConluidas = await lerTarefas();
   const naoConluidas = tarefasNaoConluidas.filter(
     (tarefa) => tarefa.concluida === false
@@ -104,5 +73,50 @@ async function concluirTarefa() {
   } else {
     tarefas[index].concluida = true;
     await escreverTarefas(tarefas);
+  }
+}
+
+// ====== MENU DE OPÇÕES ======
+async function menu() {
+  console.log(`
+    === MENU ===
+    1. Criar uma nova tarefa.
+    2. Visualizar todas as tarefas.
+    3. Visualizar apenas tarefas concluídas.
+    4. Visualizar apenas tarefas não concluídas.
+    5. Concluir uma tarefa.
+    6. Sair
+  `);
+}
+
+let encerrar = false;
+
+while (!encerrar) {
+  menu();
+
+  const opcao = +prompt("Digite a opção: ");
+
+  switch (opcao) {
+    case 1:
+      await criarTarefas();
+      break;
+    case 2:
+      await mostrarTodasTarefas();
+      break;
+    case 3:
+      await mostrarTarefasConcluidas();
+      break;
+    case 4:
+      await mostrarTarefasNaoConluidas();
+      break;
+    case 5:
+      await concluirTarefa();
+      break;
+    case 6:
+      console.log("Menu encerrado!");
+      encerrar = true;
+      break;
+    default:
+      console.log("Opção inválida. Tente novamente!");
   }
 }
