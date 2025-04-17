@@ -107,7 +107,7 @@ while (!encerrar) {
       await mostrarTarefasConcluidas();
       break;
     case 4:
-      await mostrarTarefasNaoConluidas();
+      await mostrarTarefasNaoConcluidas();
       break;
     case 5:
       await concluirTarefa();
